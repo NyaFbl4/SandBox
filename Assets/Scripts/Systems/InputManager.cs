@@ -11,11 +11,13 @@ namespace Sandbox
 
         public void Update()
         {
+            /*
             if(Input.GetKeyDown(KeyCode.Mouse0))
             {
                 OnAttack();
             }
-
+            */
+            
             float directionX = 0;
             
             if (Input.GetKey(KeyCode.LeftArrow))
