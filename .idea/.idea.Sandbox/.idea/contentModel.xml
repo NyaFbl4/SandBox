@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\lomok\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\lomok\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Sandbox.2075314245.00" t="ExcludeRecursive" />
-    <e p="C:\Users\lomok\Desktop\Unity\Проекты\Sandbox" t="IncludeRecursive">
+    <e p="C:\Users\Public\Repos\Sandbox" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="Bullet" t="Include">
+            <e p="Bullet.cs" t="Include" />
+          </e>
           <e p="CharacterStateController.cs" t="Include" />
           <e p="Components" t="Include">
+            <e p="IDamage.cs" t="Include" />
             <e p="MoveComponent.cs" t="Include" />
+            <e p="Shooter.cs" t="Include" />
+          </e>
+          <e p="Enemy" t="Include">
+            <e p="EnemyController.cs" t="Include" />
           </e>
           <e p="LookAtEnemy.cs" t="Include" />
           <e p="Systems" t="Include">
@@ -23,5 +29,7 @@
       <e p="Sandbox.sln" t="IncludeFlat" />
       <e p="Temp\Bin" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\Никита\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Никита\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_SandBox.1116252945.00" t="ExcludeRecursive" />
   </component>
 </project>

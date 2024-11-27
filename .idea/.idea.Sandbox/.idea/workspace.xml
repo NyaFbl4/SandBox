@@ -7,9 +7,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterStateController.cs" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Systems/Input.cs" />
@@ -19,6 +16,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Systems/InputManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ChsracterStateController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CharacterStateController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Components/IDamage.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bullet/Bullet.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Components/Shooter.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2o19lBdDkx6ZY3Jbqv1984c71Qk" />
@@ -33,7 +34,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+  <component name="RunManager">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -62,6 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732179289848</updated>
       <workItem from="1732179298736" duration="4609000" />
+      <workItem from="1732712914296" duration="2910000" />
     </task>
     <servers />
   </component>
