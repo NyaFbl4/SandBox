@@ -6,6 +6,7 @@ namespace Components
     {
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private float _bulletSpeed = 20f;
+        [SerializeField] private Transform _shootPoint;
         
         [SerializeField] private float _detectionRadius = 10f;
         [SerializeField] private GameObject _target;
@@ -17,8 +18,10 @@ namespace Components
             
             if (Input.GetKeyDown(KeyCode.Space)) // Проверяем нажатие пробела для стрельбы
             {
+                Debug.Log("shoot");
                 if (_target != null)
                 {
+                    Debug.Log("1");
                     ShootAtTarget(_target);
                 }
             }
@@ -51,14 +54,18 @@ namespace Components
         // Метод для стрельбы в цель
         private void ShootAtTarget(GameObject target)
         {
+            Debug.Log("2");
             // Создаём пулю и устанавливаем её позицию
-            GameObject bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(_bulletPrefab, _shootPoint.position, _shootPoint.rotation);
             Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+            
+            //GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
 
             if (bulletRb != null)
             {
                 // Устанавливаем направление к цели
-                Vector3 direction = (target.transform.position - transform.position).normalized;
+                Vector3 direction = (target.transform.position - _shootPoint.position).normalized;
                 bulletRb.velocity = direction * _bulletSpeed;
 
                 // Уничтожаем пулю через 5 секунд, если она не уничтожена раньше
