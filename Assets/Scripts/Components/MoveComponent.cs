@@ -9,6 +9,7 @@ namespace Components
         [SerializeField] private InputManager _inputManager;
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private float _speed;
+        [SerializeField] private float _rotationSpeed = 5f; // Скорость поворота
 
         private float _dirX = 0;
         private float _dirZ = 0;
@@ -27,8 +28,23 @@ namespace Components
 
         private void FixedUpdate()
         {
-            _rigidbody.velocity = new Vector3(_dirX, 0, _dirZ) * _speed;
+            //_rigidbody.velocity = new Vector3(_dirX, 0, _dirZ) * _speed;
+            Vector3 direction = new Vector3(_dirX, 0, _dirZ).normalized;
+            
+            // Устанавливаем скорость
+            _rigidbody.velocity = direction * _speed;
 
+            // Проверяем, что направлению не равен нулевой вектор
+            if (direction != Vector3.zero)
+            {
+                // Вычисляем поворот объекта, чтобы он смотрел в направлении движения
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+            
+                // Плавный поворот между текущей и целевой ротацией
+                Quaternion newRotation = Quaternion.Slerp(_rigidbody.rotation, targetRotation, Time.fixedDeltaTime * _rotationSpeed);
+                _rigidbody.rotation = newRotation;
+            }
+            
             /*
             if (Input.GetKey(KeyCode.LeftArrow))
             {

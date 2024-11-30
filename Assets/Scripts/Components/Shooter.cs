@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Components
 {
@@ -7,15 +8,30 @@ namespace Components
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private float _bulletSpeed = 20f;
         [SerializeField] private Transform _shootPoint;
+        [SerializeField] private Transform[] _shootPoints;
         
         [SerializeField] private float _detectionRadius = 10f;
+        [SerializeField] private float _fireRate = 1f; // Интервал между выстрелами
         [SerializeField] private GameObject _target;
         
+        private Coroutine _shootingCoroutine;
 
         private void Update()
         {
             _target = FindTarget();
-            
+
+            // Запускаем или останавливаем корутину в зависимости от наличия цели
+            if (_target != null && _shootingCoroutine == null)
+            {
+                _shootingCoroutine = StartCoroutine(ShootAutomatically());
+            }
+            else if (_target == null && _shootingCoroutine != null)
+            {
+                StopCoroutine(_shootingCoroutine);
+                _shootingCoroutine = null;
+            }
+
+            /*
             if (Input.GetKeyDown(KeyCode.Space)) // Проверяем нажатие пробела для стрельбы
             {
                 Debug.Log("shoot");
@@ -24,6 +40,16 @@ namespace Components
                     Debug.Log("1");
                     ShootAtTarget(_target);
                 }
+            }
+            */
+        }
+
+        private IEnumerator ShootAutomatically()
+        {
+            while (true) // Бесконечный цикл для автоматической стрельбы
+            {
+                ShootAtTarget(_target);
+                yield return new WaitForSeconds(_fireRate); // Ждём заданный интервал
             }
         }
         
@@ -54,14 +80,10 @@ namespace Components
         // Метод для стрельбы в цель
         private void ShootAtTarget(GameObject target)
         {
-            Debug.Log("2");
             // Создаём пулю и устанавливаем её позицию
             GameObject bullet = Instantiate(_bulletPrefab, _shootPoint.position, _shootPoint.rotation);
             Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
             
-            //GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
-
             if (bulletRb != null)
             {
                 // Устанавливаем направление к цели
@@ -69,7 +91,7 @@ namespace Components
                 bulletRb.velocity = direction * _bulletSpeed;
 
                 // Уничтожаем пулю через 5 секунд, если она не уничтожена раньше
-                Destroy(bullet, 5f);
+                //Destroy(bullet, 5f);
             }
         }
     }
