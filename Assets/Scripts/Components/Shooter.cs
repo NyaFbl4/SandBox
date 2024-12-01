@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Assets.Scripts.Bullet;
 using UnityEngine;
 
 namespace Components
@@ -7,11 +8,14 @@ namespace Components
     {
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private float _bulletSpeed = 20f;
+        [SerializeField] private int _bulletDamage = 5;
+        
         [SerializeField] private Transform _shootPoint;
         [SerializeField] private Transform[] _shootPoints;
         
         [SerializeField] private float _detectionRadius = 10f;
         [SerializeField] private float _fireRate = 1f; // Интервал между выстрелами
+        
         [SerializeField] private GameObject _target;
         
         private Coroutine _shootingCoroutine;
@@ -82,16 +86,24 @@ namespace Components
         {
             // Создаём пулю и устанавливаем её позицию
             GameObject bullet = Instantiate(_bulletPrefab, _shootPoint.position, _shootPoint.rotation);
-            Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
-            
-            if (bulletRb != null)
-            {
-                // Устанавливаем направление к цели
-                Vector3 direction = (target.transform.position - _shootPoint.position).normalized;
-                bulletRb.velocity = direction * _bulletSpeed;
 
-                // Уничтожаем пулю через 5 секунд, если она не уничтожена раньше
-                //Destroy(bullet, 5f);
+            Bullet bulletComponent = bullet.GetComponent<Bullet>();
+
+            if (bulletComponent != null)
+            {
+                bulletComponent.SetDamage(_bulletDamage);
+
+                Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+
+                if (bulletRb != null)
+                {
+                    // Устанавливаем направление к цели
+                    Vector3 direction = (target.transform.position - _shootPoint.position).normalized;
+                    bulletRb.velocity = direction * _bulletSpeed;
+
+                    // Уничтожаем пулю через 5 секунд, если она не уничтожена раньше
+                    //Destroy(bullet, 5f);
+                }
             }
         }
     }

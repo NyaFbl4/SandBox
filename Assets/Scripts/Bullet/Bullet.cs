@@ -5,20 +5,63 @@ namespace Assets.Scripts.Bullet
 {
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] private int _damage = 10;
+        [SerializeField] private Collider _bulletCollider;
+        
+        private int _damage;
 
-        //private void OnCollisionEnter(Collision collision)
-        private void OnTriggerEnter(Collider collision)
+        public void SetDamage(int damage)
         {
-            IDamage damage = collision.gameObject.GetComponent<IDamage>();
-            
-            if (damage != null)
-            {
-                damage.TakeDamage(_damage);
-                Debug.Log("damage");
-            }
-            
-            Destroy(gameObject);
+            _damage = damage;
         }
+
+        /*
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.tag == "Enemy")
+            {
+                Debug.Log("!!!!");
+            }
+        }
+        */
+        
+        private void OnTriggerEnter(Collider other)
+        {
+            Debug.Log("Collision detected with: " + other.gameObject.name);
+            
+            if (other.CompareTag("Enemy"))
+            {
+                IDamage damageComponent = other.GetComponent<IDamage>();
+                if (damageComponent != null)
+                {
+                    damageComponent.TakeDamage(_damage);
+                    Debug.Log("Damage dealt to enemy.");
+                }
+
+                //Destroy(gameObject); // Уничтожаем пулю
+            }
+            else
+            {
+                // Если это не враг, ничего не делаем
+                Debug.Log("Ignoring collision with: " + other.gameObject.name);
+            }
+        }
+
+        /*
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            IDamage damageComponent = other.GetComponent<IDamage>();
+            if (damageComponent != null)
+            {
+                damageComponent.TakeDamage(_damage);
+                Debug.Log("Damage dealt to enemy.");
+            }
+
+            Destroy(gameObject); // Уничтожаем пулю
+        }
+        // Игнорируем все другие столкновения
+    }
+    */
     }
 }
