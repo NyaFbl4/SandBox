@@ -22,7 +22,6 @@ namespace Assets.Scripts.Bullet
                 Debug.Log("!!!!");
             }
         }
-        */
         
         private void OnTriggerEnter(Collider other)
         {
@@ -45,8 +44,9 @@ namespace Assets.Scripts.Bullet
                 Debug.Log("Ignoring collision with: " + other.gameObject.name);
             }
         }
+        */
 
-        /*
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
@@ -62,6 +62,6 @@ namespace Assets.Scripts.Bullet
         }
         // Игнорируем все другие столкновения
     }
-    */
+    
     }
 }

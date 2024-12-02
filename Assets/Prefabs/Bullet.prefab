@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8311228090922980802}
   - component: {fileID: 8635867861493253996}
   - component: {fileID: 4089060214985783033}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 2500766446623992288}
   - component: {fileID: 6798047786366470124}
   - component: {fileID: 3944451788283043614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
