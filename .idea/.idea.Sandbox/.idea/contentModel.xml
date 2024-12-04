@@ -15,6 +15,7 @@
             <e p="IDamage.cs" t="Include" />
             <e p="MoveComponent.cs" t="Include" />
             <e p="Shooter.cs" t="Include" />
+            <e p="TargetTrackerComponent.cs" t="Include" />
           </e>
           <e p="Enemy" t="Include">
             <e p="EnemyController.cs" t="Include" />

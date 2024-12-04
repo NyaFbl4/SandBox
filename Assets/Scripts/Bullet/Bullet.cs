@@ -5,8 +5,6 @@ namespace Assets.Scripts.Bullet
 {
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] private Collider _bulletCollider;
-        
         private int _damage;
 
         public void SetDamage(int damage)
@@ -47,21 +45,20 @@ namespace Assets.Scripts.Bullet
         */
 
     
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
+        private void OnTriggerEnter(Collider other)
         {
-            IDamage damageComponent = other.GetComponent<IDamage>();
-            if (damageComponent != null)
+            Debug.Log(other.gameObject.name);
+            
+            if (other.CompareTag("Enemy"))
             {
-                damageComponent.TakeDamage(_damage);
-                Debug.Log("Damage dealt to enemy.");
-            }
+                IDamage damageComponent = other.GetComponent<IDamage>();
+                if (damageComponent != null)
+                {
+                    damageComponent.TakeDamage(_damage);
+                }
 
-            Destroy(gameObject); // Уничтожаем пулю
+                Destroy(gameObject); // Уничтожаем пулю
+            }
         }
-        // Игнорируем все другие столкновения
-    }
-    
     }
 }

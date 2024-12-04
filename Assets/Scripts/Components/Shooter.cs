@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Assets.Scripts.Bullet;
 using UnityEngine;
 
@@ -6,82 +7,73 @@ namespace Components
 {
     public class Shooter : MonoBehaviour
     {
+        [SerializeField] private TargetTrackerComponent _targetTracker;
+        
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private float _bulletSpeed = 20f;
         [SerializeField] private int _bulletDamage = 5;
         
         [SerializeField] private Transform _shootPoint;
-        [SerializeField] private Transform[] _shootPoints;
-        
-        [SerializeField] private float _detectionRadius = 10f;
-        [SerializeField] private float _fireRate = 1f; // Интервал между выстрелами
-        
-        [SerializeField] private GameObject _target;
-        
+        [SerializeField] private float _fireRate; // Интервал между выстрелами
+
+        [SerializeField] private int _maxCurrentShots;
+
         private Coroutine _shootingCoroutine;
 
         private void Update()
         {
-            _target = FindTarget();
+            List<GameObject> targets = _targetTracker.GetCurrentTargets();
 
-            // Запускаем или останавливаем корутину в зависимости от наличия цели
-            if (_target != null && _shootingCoroutine == null)
+            // Запускаем или останавливаем корутину в зависимости от наличия целей
+            if (targets.Count > 0 && _shootingCoroutine == null)
             {
-                _shootingCoroutine = StartCoroutine(ShootAutomatically());
+                _shootingCoroutine = StartCoroutine(ShootAutomatically(targets));
             }
-            else if (_target == null && _shootingCoroutine != null)
+            else if (targets.Count == 0 && _shootingCoroutine != null)
             {
                 StopCoroutine(_shootingCoroutine);
                 _shootingCoroutine = null;
             }
-
             /*
-            if (Input.GetKeyDown(KeyCode.Space)) // Проверяем нажатие пробела для стрельбы
+            GameObject target = _targetTracker.GetCurrentTargets();
+
+            // Запускаем или останавливаем корутину в зависимости от наличия цели
+            if (target != null && _shootingCoroutine == null)
             {
-                Debug.Log("shoot");
-                if (_target != null)
-                {
-                    Debug.Log("1");
-                    ShootAtTarget(_target);
-                }
+                _shootingCoroutine = StartCoroutine(ShootAutomatically(target));
+            }
+            else if (target == null && _shootingCoroutine != null)
+            {
+                StopCoroutine(_shootingCoroutine);
+                _shootingCoroutine = null;
             }
             */
         }
 
-        private IEnumerator ShootAutomatically()
+        private IEnumerator ShootAutomatically(List<GameObject> targets)
         {
             while (true) // Бесконечный цикл для автоматической стрельбы
             {
-                ShootAtTarget(_target);
+                ShootAtTargets(targets);
                 yield return new WaitForSeconds(_fireRate); // Ждём заданный интервал
             }
         }
-        
-        public GameObject FindTarget()
+
+        private void ShootAtTargets(List<GameObject> targets)
         {
-            // Получаем все коллайдеры в радиусе от позиции персонажа
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _detectionRadius);
-        
-            foreach (var hitCollider in hitColliders)
+            int shotsFired = 0;
+            
+            // Проходим по всем целям и стреляем в каждую, пока не достигнем максимального количества выстрелов
+            foreach (GameObject target in targets)
             {
-                // Проверяем, имеет ли объект тег "Enemy"
-                if (hitCollider.CompareTag("Enemy"))
-                {
-                    return hitCollider.gameObject; // Возвращаем найденный объект
-                }
-            }
+                if (shotsFired >= _maxCurrentShots)
+                    break; // Останавливаем стрельбу, если достигли лимита
 
-            return null; // Если цель не найдена, возвращаем null
+                ShootAtTarget(target);
+                shotsFired++;
+            }
         }
         
-        private void OnDrawGizmosSelected()
-        {
-            // Визуализация радиуса поиска в редакторе
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, _detectionRadius);
-        }
-
-        // Метод для стрельбы в цель
         private void ShootAtTarget(GameObject target)
         {
             // Создаём пулю и устанавливаем её позицию
@@ -100,10 +92,28 @@ namespace Components
                     // Устанавливаем направление к цели
                     Vector3 direction = (target.transform.position - _shootPoint.position).normalized;
                     bulletRb.velocity = direction * _bulletSpeed;
-
-                    // Уничтожаем пулю через 5 секунд, если она не уничтожена раньше
-                    //Destroy(bullet, 5f);
                 }
+
+                /*
+                // Создаём пулю и устанавливаем её позицию
+                GameObject bullet = Instantiate(_bulletPrefab, _shootPoint.position, _shootPoint.rotation);
+    
+                Bullet bulletComponent = bullet.GetComponent<Bullet>();
+    
+                if (bulletComponent != null)
+                {
+                    bulletComponent.SetDamage(_bulletDamage);
+    
+                    Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+    
+                    if (bulletRb != null)
+                    {
+                        // Устанавливаем направление к цели
+                        Vector3 direction = (target.transform.position - _shootPoint.position).normalized;
+                        bulletRb.velocity = direction * _bulletSpeed;
+                    }
+                }
+                */
             }
         }
     }

@@ -68,7 +68,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad990622c18ac74c8c4cea52e562bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletCollider: {fileID: 8311228090922980802}
 --- !u!54 &4089060214985783033
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -79,7 +78,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -91,11 +90,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
-  m_CollisionDetection: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5494277804803385857
 GameObject:
   m_ObjectHideFlags: 0
