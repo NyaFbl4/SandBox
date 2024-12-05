@@ -20,9 +20,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullet/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/TargetTrackerComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/Shooter.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMoveController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/CharacterHealthController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2o19lBdDkx6ZY3Jbqv1984c71Qk" />

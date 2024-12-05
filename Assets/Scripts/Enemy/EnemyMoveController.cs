@@ -7,6 +7,10 @@ namespace Assets.Scripts.Enemy
     {
         [SerializeField] private Transform _character;
         [SerializeField] private float _moveSpeed;
+        
+        [SerializeField] private float _rotationSpeed = 5f;
+
+        [SerializeField] private Rigidbody _rigidbody;
 
         private void OnEnable()
         {
@@ -34,6 +38,17 @@ namespace Assets.Scripts.Enemy
                 
                 // Обновляем позицию врага
                 transform.position += direction * _moveSpeed * Time.deltaTime;
+                
+                // Проверяем, что направлению не равен нулевой вектор
+                if (direction != Vector3.zero)
+                {
+                    // Вычисляем поворот объекта, чтобы он смотрел в направлении движения
+                    Quaternion targetRotation = Quaternion.LookRotation(direction);
+            
+                    // Плавный поворот между текущей и целевой ротацией
+                    Quaternion newRotation = Quaternion.Slerp(_rigidbody.rotation, targetRotation, Time.fixedDeltaTime * _rotationSpeed);
+                    _rigidbody.rotation = newRotation;
+                }
             }
         }
     }

@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  _damage: 0
+  _damage: 1
 --- !u!1 &401908368
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +393,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 0}
   _moveSpeed: 1
+  _rotationSpeed: 5
+  _rigidbody: {fileID: 401908369}
 --- !u!1 &466682930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +1085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  _damage: 0
+  _damage: 1
 --- !u!1 &1751372891571787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,6 +2417,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 10
+  _isImmortal: 0
+  _immortalDuration: 2
 --- !u!1001 &2211126459229565569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4577,9 +4581,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6265206177069213837}
   - component: {fileID: 5162234233156343}
-  - component: {fileID: 1899552581}
   - component: {fileID: 6753617675189711417}
   - component: {fileID: 6753617675189711418}
+  - component: {fileID: 1899552581}
+  - component: {fileID: 6753617675189711419}
   m_Layer: 7
   m_Name: TurtleShellPolyart
   m_TagString: Enemy
@@ -4635,6 +4640,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &6753617675189711419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6753617675189711415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ac4570af4442a0844122c3e07ecb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _character: {fileID: 0}
+  _moveSpeed: 1
+  _rotationSpeed: 5
+  _rigidbody: {fileID: 6753617675189711417}
 --- !u!4 &6806175926993062863
 Transform:
   m_ObjectHideFlags: 0
@@ -4773,9 +4794,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7498142190055146979}
   - component: {fileID: 8035681660258815857}
-  - component: {fileID: 348650665}
   - component: {fileID: 8035681660258815859}
   - component: {fileID: 8035681660258815858}
+  - component: {fileID: 348650665}
+  - component: {fileID: 8035681660258815860}
   m_Layer: 7
   m_Name: SlimePolyart
   m_TagString: Enemy
@@ -5445,6 +5467,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &8035681660258815860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7153141402080845657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ac4570af4442a0844122c3e07ecb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _character: {fileID: 0}
+  _moveSpeed: 1
+  _rotationSpeed: 5
+  _rigidbody: {fileID: 8035681660258815859}
 --- !u!137 &8078496966687150040
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
