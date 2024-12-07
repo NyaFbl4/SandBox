@@ -42,7 +42,6 @@
             <e p="CharacterHealthController.cs" t="Include" />
             <e p="IDamage.cs" t="Include" />
             <e p="MoveComponent.cs" t="Include" />
-            <e p="Shooter.cs" t="Include" />
             <e p="TargetTrackerComponent.cs" t="Include" />
           </e>
           <e p="Enemy" t="Include">
@@ -50,6 +49,10 @@
             <e p="EnemyMoveController.cs" t="Include" />
           </e>
           <e p="LookAtEnemy.cs" t="Include" />
+          <e p="Spels" t="Include">
+            <e p="OrbitalAbility.cs" t="Include" />
+            <e p="Shooter.cs" t="Include" />
+          </e>
           <e p="Systems" t="Include">
             <e p="InputManager.cs" t="Include" />
             <e p="MouseTracker.cs" t="Include" />
