@@ -6,6 +6,33 @@
     <e p="C:\Users\lomok\Desktop\Unity\Проекты\Sandbox" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="GabrielAguiarProductions" t="Include">
+          <e p="Unique_Projectiles_Volume_1" t="Include">
+            <e p="Readme.txt" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="CameraShakeSimpleScript.cs" t="Include" />
+              <e p="ParticleSystemController" t="Include">
+                <e p="ParticleSystemController.cs" t="Include" />
+                <e p="ParticleSystemControllerEditor.cs" t="Include" />
+                <e p="SaveParticleSystemScript.cs" t="Include" />
+                <e p="Serializables.cs" t="Include" />
+              </e>
+              <e p="UniqueProjectiles" t="Include">
+                <e p="ProjectileMoveScript.cs" t="Include" />
+                <e p="RotateToMouseScript.cs" t="Include" />
+                <e p="SpawnProjectilesScript.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="Additive_EdgeSoft.shader" t="Include" />
+              <e p="Additive_Scroll01.shader" t="Include" />
+              <e p="AdditiveMobile_Scroll01.shader" t="Include" />
+              <e p="AlphaBlended_EdgeSoft.shader" t="Include" />
+              <e p="AlphaBlended_Scroll01.shader" t="Include" />
+              <e p="AlphaBlendedMobile_Scroll01.shader" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Bullet" t="Include">
             <e p="Bullet.cs" t="Include" />

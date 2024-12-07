@@ -338,7 +338,7 @@ Transform:
   m_GameObject: {fileID: 401908368}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -2.33}
+  m_LocalPosition: {x: 0.51, y: 1, z: 11.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2383,7 +2383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetTracker: {fileID: 2211126459224193082}
-  _bulletPrefab: {fileID: 873985670183710231, guid: e6c9f1a9741180b47970c921ad8fb3e1, type: 3}
+  _bulletPrefab: {fileID: 1735349400919506, guid: a17580581e360e74db460cc3d5dc0396, type: 3}
   _bulletSpeed: 5
   _bulletDamage: 5
   _shootPoint: {fileID: 1357534364}
@@ -2401,7 +2401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8099f1c3bdbf4fc280b4be0a52e4231a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionRadius: 10
+  _detectionRadius: 20
   _target: {fileID: 0}
   _targets: []
 --- !u!114 &2211126459224193083
@@ -4278,7 +4278,7 @@ Transform:
   m_GameObject: {fileID: 6753617675189711415}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.99982333, z: -0, w: -0.018795898}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.51, y: 0, z: 13.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
