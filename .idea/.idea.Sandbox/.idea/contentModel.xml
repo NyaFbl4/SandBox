@@ -34,8 +34,13 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Abilities" t="Include">
+            <e p="OrbitalAbility.cs" t="Include" />
+            <e p="Shooter.cs" t="Include" />
+          </e>
           <e p="Bullet" t="Include">
             <e p="Bullet.cs" t="Include" />
+            <e p="OrbitalAbilityBullet.cs" t="Include" />
           </e>
           <e p="CharacterStateController.cs" t="Include" />
           <e p="Components" t="Include">
@@ -49,10 +54,6 @@
             <e p="EnemyMoveController.cs" t="Include" />
           </e>
           <e p="LookAtEnemy.cs" t="Include" />
-          <e p="Spels" t="Include">
-            <e p="OrbitalAbility.cs" t="Include" />
-            <e p="Shooter.cs" t="Include" />
-          </e>
           <e p="Systems" t="Include">
             <e p="InputManager.cs" t="Include" />
             <e p="MouseTracker.cs" t="Include" />

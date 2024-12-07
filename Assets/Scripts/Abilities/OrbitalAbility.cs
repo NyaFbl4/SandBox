@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Assets.Scripts.Bullet;
 using UnityEngine;
 
 namespace Components
@@ -6,17 +7,33 @@ namespace Components
     public class OrbitalAbility : MonoBehaviour
     {
         [SerializeField] private GameObject _orbPrefab; // Префаб шарика
+        [SerializeField] private float _cooldown = 10f; // Время между активациями способности
         [SerializeField] private int _orbCount = 5; // Количество шариков
         [SerializeField] private float _radius = 2f; // Радиус вращения
         [SerializeField] private float _duration = 5f; // Длительность в секундах
 
+        [SerializeField] private int _damage = 10;
+        
         private GameObject[] _orbs; // Для хранения шариков
 
-        void Update()
+        void Start()
         {
+            
             if (Input.GetKeyDown(KeyCode.Space)) // Например, по нажатию пробела
             {
                 ActivateAbility();
+            }
+            
+
+            StartCoroutine(AbilityCooldown());
+        }
+
+        private IEnumerator AbilityCooldown()
+        {
+            while (true) // Бесконечный цикл для регулярной активации способности
+            {
+                yield return new WaitForSeconds(_cooldown); // Ждем cooldown перед активацией
+                ActivateAbility(); // Активируем способность
             }
         }
         
@@ -33,8 +50,15 @@ namespace Components
             for (int i = 0; i < _orbCount; i++)
             {
                 float angle = i * (360f / _orbCount);
-                Vector3 orbPosition = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0, Mathf.Sin(angle * Mathf.Deg2Rad)) * _radius;
-                _orbs[i] = Instantiate(_orbPrefab, transform.position + orbPosition, Quaternion.identity);
+                Vector3 orbPosition = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0.5f, Mathf.Sin(angle * Mathf.Deg2Rad)) * _radius;
+                 _orbs[i] = Instantiate(_orbPrefab, transform.position + orbPosition, Quaternion.identity);
+
+                OrbitalAbilityBullet orbitalAbilityComponent = _orbs[i].gameObject.GetComponent<OrbitalAbilityBullet>();
+
+                if (_orbs[i] != null)
+                {
+                    orbitalAbilityComponent.SetDamage(_damage);
+                }
             }
 
             // Вращение шариков
@@ -44,7 +68,7 @@ namespace Components
                 for (int i = 0; i < _orbCount; i++)
                 {
                     float angle = i * (360f / _orbCount) + (elapsedTime / _duration) * 360f;
-                    Vector3 orbPosition = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0, Mathf.Sin(angle * Mathf.Deg2Rad)) * _radius;
+                    Vector3 orbPosition = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0.5f, Mathf.Sin(angle * Mathf.Deg2Rad)) * _radius;
                     _orbs[i].transform.position = transform.position + orbPosition;
                 }
 

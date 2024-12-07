@@ -24,6 +24,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMoveController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/CharacterHealthController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Spels/OrbitalAbility.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bullet/OrbitalAbilityBullet.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Abilities/OrbitalAbility.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2o19lBdDkx6ZY3Jbqv1984c71Qk" />
