@@ -6,12 +6,22 @@ namespace Components
 {
     public class OrbitalAbility : MonoBehaviour
     {
+        [Header("Префаб шарика, который будет вращаться")]
         [SerializeField] private GameObject _orbPrefab; // Префаб шарика
+        
+        [Header("Время между активациями способности")]
         [SerializeField] private float _cooldown = 10f; // Время между активациями способности
+        
+        [Header("Количество шариков, которые будут созданы")]
         [SerializeField] private int _orbCount = 5; // Количество шариков
+        
+        [Header("Радиус, на котором будут располагаться шарики")]
         [SerializeField] private float _radius = 2f; // Радиус вращения
+        
+        [Header("Длительность способности в секундах")]
         [SerializeField] private float _duration = 5f; // Длительность в секундах
 
+        [Header("Урон от одного шарика")]
         [SerializeField] private int _damage = 10;
         
         private GameObject[] _orbs; // Для хранения шариков
