@@ -11,13 +11,13 @@ namespace Assets.Scripts.Bullet
             _damage = damage;
         }
         
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision other)
         {
             Debug.Log(other.gameObject.name);
             
-            if (other.CompareTag("Enemy"))
+            if (other.gameObject.CompareTag("Enemy"))
             {
-                IDamage damageComponent = other.GetComponent<IDamage>();
+                IDamage damageComponent = other.gameObject.GetComponent<IDamage>();
                 if (damageComponent != null)
                 {
                     damageComponent.TakeDamage(_damage);

@@ -23,11 +23,13 @@ namespace Components
 
         [Header("Урон от одного шарика")]
         [SerializeField] private int _damage = 10;
-        
+
+        [SerializeField] private bool _isActiv;
         private GameObject[] _orbs; // Для хранения шариков
 
         void Start()
         {
+            _isActiv = false;
             
             if (Input.GetKeyDown(KeyCode.Space)) // Например, по нажатию пробела
             {
@@ -50,6 +52,7 @@ namespace Components
         public void ActivateAbility()
         {
             StartCoroutine(SpawnAndRotateOrbs());
+            _isActiv = true;
         }
 
         private IEnumerator SpawnAndRotateOrbs()
