@@ -20,13 +20,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/TargetTrackerComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/Shooter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMoveController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/CharacterHealthController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Spels/OrbitalAbility.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Abilities/Shooter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullet/OrbitalAbilityBullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Abilities/OrbitalAbility.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullet/Bullet.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMoveController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2o19lBdDkx6ZY3Jbqv1984c71Qk" />
@@ -72,7 +72,7 @@
       <workItem from="1732179298736" duration="4609000" />
       <workItem from="1732712914296" duration="2910000" />
       <workItem from="1732794191105" duration="1969000" />
-      <workItem from="1733900999791" duration="2736000" />
+      <workItem from="1733900999791" duration="5712000" />
     </task>
     <servers />
   </component>

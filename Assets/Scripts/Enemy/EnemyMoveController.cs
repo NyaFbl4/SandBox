@@ -36,9 +36,11 @@ namespace Assets.Scripts.Enemy
                 // Рассчитываем направление к цели
                 Vector3 direction = (_character.position - transform.position).normalized;
                 
+                direction.y = 0;
+                
                 // Обновляем позицию врага
                 transform.position += direction * _moveSpeed * Time.deltaTime;
-                
+
                 // Проверяем, что направлению не равен нулевой вектор
                 if (direction != Vector3.zero)
                 {

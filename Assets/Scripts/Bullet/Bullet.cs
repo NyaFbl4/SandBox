@@ -60,7 +60,7 @@ namespace Assets.Scripts.Bullet
                     damageComponent.TakeDamage(_damage);
                 }
 
-                Destroy(gameObject); // Уничтожаем пулю
+                //Destroy(gameObject); // Уничтожаем пулю
             }
         }
     }
