@@ -18,6 +18,9 @@ namespace Components
         [Header("Радиус, на котором будут располагаться шарики")]
         [SerializeField] private float _radius = 2f; // Радиус вращения
         
+        [Header("Скорость вращения шаров")]
+        [SerializeField] private float _rotationSpeed;
+        
         [Header("Длительность способности в секундах")]
         [SerializeField] private float _duration = 5f; // Длительность в секундах
 
@@ -80,7 +83,9 @@ namespace Components
             {
                 for (int i = 0; i < _orbCount; i++)
                 {
-                    float angle = i * (360f / _orbCount) + (elapsedTime / _duration) * 360f;
+                    float angle = i * (360f / _orbCount) + (elapsedTime / _duration * _rotationSpeed * 360f);
+                    //float angle = i * (360f / _orbCount) + (elapsedTime / _duration) * 360f;
+                    
                     Vector3 orbPosition = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0.5f, Mathf.Sin(angle * Mathf.Deg2Rad)) * _radius;
                     _orbs[i].transform.position = transform.position + orbPosition;
                 }
