@@ -45,13 +45,16 @@ namespace Assets.Scripts.Bullet
         */
 
     
+        //private void OnCollisionEnter(Collision other)
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log(other.gameObject.name);
+            //Debug.Log(other.gameObject.name);
             
-            if (other.CompareTag("Enemy"))
+            if (other.gameObject.CompareTag("Enemy")) // Проверяем, что это враг
             {
-                IDamage damageComponent = other.GetComponent<IDamage>();
+                Debug.Log(other.gameObject.name);
+                // Обработка урона врагу
+                IDamage damageComponent = other.gameObject.GetComponent<IDamage>();
                 if (damageComponent != null)
                 {
                     damageComponent.TakeDamage(_damage);
