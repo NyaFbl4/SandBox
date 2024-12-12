@@ -19,7 +19,7 @@ namespace Components
             _currentExperience += exp;
 
             // Проверка на уровень
-            while (_currentExperience >= _currentExperience)
+            while (_currentExperience >= _experienceToNextLevel)
             {
                 _currentExperience -= _currentExperience;
                 LevelUp();
@@ -30,13 +30,10 @@ namespace Components
         {
             _currentLevel++;
             _experienceToNextLevel = CalculateExperienceToNextLevel(_currentLevel);
-            Debug.Log($"Поздравляем! Вы достигли уровня {_currentLevel}!");
         }
         
         private int CalculateExperienceToNextLevel(int level)
         {
-            // Вы можете использовать любую формулу для расчета необходимого опыта для следующего уровня.
-            // Пример: добавление 50 опыта за каждый уровень.
             return 100 + (level - 1) * 50;
         }
     }

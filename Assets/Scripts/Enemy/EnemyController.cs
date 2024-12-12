@@ -5,6 +5,9 @@ namespace Assets.Scripts.Enemy
 {
     public class EnemyController : MonoBehaviour, IDamage
     {
+        [SerializeField] private GameObject _expiriencePrefab;
+        [SerializeField] private int _expirience;
+        
         [SerializeField] private int _health = 100;
         [SerializeField] private int _damage;
         
@@ -15,26 +18,16 @@ namespace Assets.Scripts.Enemy
             if (_health <= 0)
             {
                 Destroy(gameObject);
-            }
-        }
 
-        /*
-        private void OnCollisionEnter(Collision other)
-        {
-            if (other.gameObject.CompareTag("Character"))
-            {
-                IDamage damageComponent = other.gameObject.GetComponent<IDamage>();
+                GameObject expiriencePrefab = Instantiate(_expiriencePrefab, transform.position , Quaternion.identity);
 
-                if (damageComponent != null)
+                if (expiriencePrefab != null)
                 {
-                    damageComponent.TakeDamage(_damage);
+                    ExperiencePickup experiencecomponent = expiriencePrefab.GetComponent<ExperiencePickup>();
+                    experiencecomponent.SetExperience(_expirience);
                 }
-                
-                Debug.Log("damage");
             }
         }
-        */
-        
 
         private void OnTriggerEnter(Collider other)
         {
