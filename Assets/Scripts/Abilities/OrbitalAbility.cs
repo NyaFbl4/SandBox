@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Components
 {
-    public class OrbitalAbility : MonoBehaviour
+    public class OrbitalAbility : MonoBehaviour, ILvlUp
     {
         [Header("Префаб шарика, который будет вращаться")]
         [SerializeField] private GameObject _orbPrefab; // Префаб шарика
@@ -27,14 +27,13 @@ namespace Components
         void Start()
         {
             _isActiv = false;
-            
-            if (Input.GetKeyDown(KeyCode.Space)) // Например, по нажатию пробела
-            {
-                ActivateAbility();
-            }
-            
 
             StartCoroutine(AbilityCooldown());
+        }
+
+        public void LvlUp()
+        {
+            
         }
 
         private IEnumerator AbilityCooldown()
@@ -49,7 +48,7 @@ namespace Components
             //}
         }
         
-        public void ActivateAbility()
+        private void ActivateAbility()
         {
             StartCoroutine(SpawnAndRotateOrbs());
             _isActiv = true;

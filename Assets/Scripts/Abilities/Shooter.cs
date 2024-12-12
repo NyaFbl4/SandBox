@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Components
 {
-    public class Shooter : MonoBehaviour
+    public class Shooter : MonoBehaviour, ILvlUp
     {
         [SerializeField] private TargetTrackerComponent _targetTracker;
         
@@ -48,6 +48,11 @@ namespace Components
                 _shootingCoroutine = null;
             }
             */
+        }
+
+        public void LvlUp()
+        {
+            
         }
 
         private IEnumerator ShootAutomatically(List<GameObject> targets)
