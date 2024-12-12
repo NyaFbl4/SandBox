@@ -8,22 +8,16 @@ namespace Components
     {
         [Header("Префаб шарика, который будет вращаться")]
         [SerializeField] private GameObject _orbPrefab; // Префаб шарика
-        
         [Header("Время между активациями способности")]
         [SerializeField] private float _cooldown = 10f; // Время между активациями способности
-        
         [Header("Количество шариков, которые будут созданы")]
         [SerializeField] private int _orbCount = 5; // Количество шариков
-        
         [Header("Радиус, на котором будут располагаться шарики")]
         [SerializeField] private float _radius = 2f; // Радиус вращения
-        
         [Header("Скорость вращения шаров")]
         [SerializeField] private float _rotationSpeed;
-        
         [Header("Длительность способности в секундах")]
         [SerializeField] private float _duration = 5f; // Длительность в секундах
-
         [Header("Урон от одного шарика")]
         [SerializeField] private int _damage = 10;
 
@@ -45,11 +39,14 @@ namespace Components
 
         private IEnumerator AbilityCooldown()
         {
-            while (true) // Бесконечный цикл для регулярной активации способности
-            {
-                yield return new WaitForSeconds(_cooldown); // Ждем cooldown перед активацией
-                ActivateAbility(); // Активируем способность
-            }
+            //if (!_isActiv)
+            //{
+                //while (true) // Бесконечный цикл для регулярной активации способности
+                //{
+                    yield return new WaitForSeconds(_cooldown); // Ждем cooldown перед активацией
+                    ActivateAbility(); // Активируем способность
+                //}
+            //}
         }
         
         public void ActivateAbility()
@@ -99,6 +96,9 @@ namespace Components
             {
                 Destroy(_orbs[i]);
             }
+
+            _isActiv = false;
+            StartCoroutine(AbilityCooldown());
         }
     }
 }

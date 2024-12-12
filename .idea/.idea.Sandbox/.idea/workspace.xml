@@ -16,7 +16,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/ChsracterStateController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CharacterStateController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/IDamage.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Components/MoveComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/TargetTrackerComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/Shooter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" />
@@ -26,6 +25,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullet/OrbitalAbilityBullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullet/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMoveController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Components/MoveComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Abilities/OrbitalAbility.cs" />
     </changedPaths>
   </component>
@@ -73,6 +73,7 @@
       <workItem from="1732712914296" duration="2910000" />
       <workItem from="1732794191105" duration="1969000" />
       <workItem from="1733900999791" duration="7668000" />
+      <workItem from="1733988705558" duration="668000" />
     </task>
     <servers />
   </component>

@@ -68,6 +68,11 @@ namespace Components
             */
         }
 
+        public void UpgradeMoveSpeed(float addSpeed)
+        {
+            _speed += addSpeed;
+        }
+        
         private void OnMoveX(float directionX)
         {
             _dirX = directionX;
